@@ -1,0 +1,5 @@
+title: Youth FC Manager
+description: 유소년 축구팀 관리 시스템 — 문서
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+  - jekyll-remote-theme
