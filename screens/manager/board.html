@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시판 | Youth FC Manager</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="logo"><i class="bi bi-trophy"></i> Youth FC</div>
+  <div class="nav-section">대시보드</div>
+  <a href="../manager/dashboard.html" class="nav-item"><i class="bi bi-house"></i> 대시보드</a>
+  <div class="nav-section">회비</div>
+  <a href="../manager/fee-input.html" class="nav-item"><i class="bi bi-credit-card"></i> 회비 입력</a>
+  <a href="../manager/fee-list.html" class="nav-item"><i class="bi bi-list-ul"></i> 납부 목록</a>
+  <a href="../manager/payment-summary.html" class="nav-item"><i class="bi bi-calculator"></i> 정산 요약</a>
+  <a href="../manager/expense-input.html" class="nav-item"><i class="bi bi-cash-stack"></i> 지출 입력</a>
+  <div class="nav-section">원생</div>
+  <a href="../manager/student-list.html" class="nav-item"><i class="bi bi-people"></i> 원생 목록</a>
+  <a href="../manager/student-detail.html" class="nav-item"><i class="bi bi-person-badge"></i> 원생 상세</a>
+  <div class="nav-section">리포트</div>
+  <a href="../manager/report-view.html" class="nav-item"><i class="bi bi-file-text"></i> 리포트 조회</a>
+  <div class="nav-section">부가</div>
+  <a href="../manager/schedule.html" class="nav-item"><i class="bi bi-calendar3"></i> 일정 관리</a>
+  <a href="../manager/board.html" class="nav-item"><i class="bi bi-chat-square-text"></i> 게시판</a>
+  <div style="margin-top:auto;padding:1rem;border-top:1px solid rgba(255,255,255,0.08);">
+    <a href="../index.html" class="nav-item"><i class="bi bi-grid"></i> 전체 화면 목록</a>
+  </div>
+</nav>
+  <div class="main-content">
+    <div class="topbar">
+      <div class="d-flex align-items-center gap-3">
+        <button class="btn btn-sm d-md-none" id="sidebarToggle"><i class="bi bi-list fs-5"></i></button>
+        <h1 class="page-title mb-0">게시판</h1>
+      </div>
+      <div class="user-badge">
+        <span class="d-none d-sm-inline text-muted small">매니저 (Manager)</span>
+        <div class="avatar">박</div>
+      </div>
+    </div>
+    <div class="content-area">
+      
+<div class="d-flex justify-content-between mb-3"><div><input type="text" class="form-control form-control-sm" style="width:200px" placeholder="검색"></div><div class="d-flex gap-2"><button class="btn btn-sm btn-outline-primary active">전체</button><button class="btn btn-sm btn-outline-primary">공지</button><button class="btn btn-sm btn-outline-primary">자유</button><button class="btn btn-sm btn-primary"><i class="bi bi-plus-lg"></i> 글쓰기</button></div></div>
+<div class="card"><div class="table-responsive"><table class="table table-hover"><thead><tr><th>제목</th><th>작성자</th><th>날짜</th><th>조회</th></tr></thead><tbody>
+<tr><td><span class="badge bg-danger me-1">공지</span>6월 대회 안내</td><td>매니저</td><td>06-01</td><td>15</td></tr>
+<tr><td><span class="badge bg-warning me-1">자유</span>오늘 수업 인증샷</td><td>박코치</td><td>05-30</td><td>8</td></tr>
+<tr><td><span class="badge bg-warning me-1">자유</span>새 용품 추천</td><td>이코치</td><td>05-28</td><td>5</td></tr>
+</tbody></table></div></div>
+
+    </div>
+  </div>
+  <div class="mobile-bottom-nav">
+<a href="../manager/dashboard.html" class=""><i class="bi bi-house"></i><span>대시보드</span></a>
+<a href="../manager/fee-input.html" class=""><i class="bi bi-credit-card"></i><span>회비</span></a>
+<a href="../manager/student-list.html" class=""><i class="bi bi-people"></i><span>원생</span></a>
+<a href="../manager/payment-summary.html" class=""><i class="bi bi-calculator"></i><span>정산</span></a>
+<a href="../admin/settings.html" class=""><i class="bi bi-gear"></i><span>설정</span></a>
+</div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
