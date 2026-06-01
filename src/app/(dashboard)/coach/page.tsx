@@ -11,10 +11,92 @@ import {
   ClipboardCheck,
   FileText,
   Camera,
+  Calendar,
+  Star,
+  TrendingUp,
+  MessageSquare,
+  ClipboardList,
+  Phone,
+  Image,
 } from "lucide-react";
 import { StatCard } from "@/components/ui/StatCard";
 import { Card } from "@/components/ui/Card";
 import Link from "next/link";
+
+const quickActions = [
+  {
+    label: "출석 체크",
+    href: "/coach/attendance",
+    icon: <ClipboardCheck className="h-5 w-5" />,
+    color: "#16a34a",
+  },
+  {
+    label: "출석 알림",
+    href: "/coach/attendance/alerts",
+    icon: <Phone className="h-5 w-5" />,
+    color: "#dc2626",
+  },
+  {
+    label: "훈련 일지",
+    href: "/coach/training/log",
+    icon: <FileText className="h-5 w-5" />,
+    color: "#2563eb",
+  },
+  {
+    label: "훈련 평가",
+    href: "/coach/training/evaluate",
+    icon: <Star className="h-5 w-5" />,
+    color: "#f59e0b",
+  },
+  {
+    label: "성장 그래프",
+    href: "/coach/training/growth",
+    icon: <TrendingUp className="h-5 w-5" />,
+    color: "#06b6d4",
+  },
+  {
+    label: "성장 리포트",
+    href: "/coach/training/reports",
+    icon: <ClipboardList className="h-5 w-5" />,
+    color: "#8b5cf6",
+  },
+  {
+    label: "사진 촬영",
+    href: "/coach/photos",
+    icon: <Camera className="h-5 w-5" />,
+    color: "#ec4899",
+  },
+  {
+    label: "메시지",
+    href: "/coach/messages",
+    icon: <MessageSquare className="h-5 w-5" />,
+    color: "#14b8a6",
+  },
+  {
+    label: "내 시간표",
+    href: "/coach/schedule",
+    icon: <Calendar className="h-5 w-5" />,
+    color: "#2563eb",
+  },
+  {
+    label: "게시판",
+    href: "/coach/board",
+    icon: <ClipboardList className="h-5 w-5" />,
+    color: "#f97316",
+  },
+  {
+    label: "인수인계",
+    href: "/coach/handover",
+    icon: <Users className="h-5 w-5" />,
+    color: "#06b6d4",
+  },
+  {
+    label: "원생 조회",
+    href: "/coach/students",
+    icon: <Users className="h-5 w-5" />,
+    color: "#6366f1",
+  },
+];
 
 export default function CoachDashboardPage() {
   const stats = [
@@ -72,7 +154,7 @@ export default function CoachDashboardPage() {
     <div className="space-y-6">
       {/* Page header */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900">코치 대시보드</h2>
+        <h2 className="text-2xl font-bold text-gray-900">코치 홈</h2>
         <p className="mt-1 text-sm text-gray-500">
           오늘의 수업 일정과 훈련 현황을 확인하세요
         </p>
@@ -116,39 +198,44 @@ export default function CoachDashboardPage() {
                 {todayAttendance.late}명
               </span>
             </div>
+            <div className="pt-2 flex gap-2">
+              <Link
+                href="/coach/attendance"
+                className="flex-1 text-center rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white hover:bg-blue-700"
+              >
+                출석 체크 바로가기
+              </Link>
+              <Link
+                href="/coach/attendance/alerts"
+                className="flex-1 text-center rounded-lg border border-gray-200 px-3 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50"
+              >
+                알림 현황
+              </Link>
+            </div>
           </div>
         </Card>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           <Card title="퀵 액션">
-            <div className="flex flex-col gap-2">
-              <Link
-                href="/coach/attendance"
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
-              >
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-100 text-green-600">
-                  <ClipboardCheck className="h-4 w-4" />
-                </span>
-                출석 체크
-              </Link>
-              <Link
-                href="/coach/training"
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
-              >
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
-                  <FileText className="h-4 w-4" />
-                </span>
-                훈련 기록
-              </Link>
-              <Link
-                href="/coach/photos"
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
-              >
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-100 text-purple-600">
-                  <Camera className="h-4 w-4" />
-                </span>
-                사진 기록
-              </Link>
+            <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
+              {quickActions.map((action) => (
+                <Link
+                  key={action.label}
+                  href={action.href}
+                  className="flex flex-col items-center gap-1.5 rounded-lg border border-gray-100 px-2 py-2.5 text-center text-[10px] font-medium text-gray-600 transition-all hover:border-gray-200 hover:bg-gray-50"
+                >
+                  <span
+                    className="flex h-8 w-8 items-center justify-center rounded-lg"
+                    style={{
+                      backgroundColor: `${action.color}18`,
+                      color: action.color,
+                    }}
+                  >
+                    {action.icon}
+                  </span>
+                  {action.label}
+                </Link>
+              ))}
             </div>
           </Card>
 
@@ -172,6 +259,12 @@ export default function CoachDashboardPage() {
                   </span>
                 </div>
               ))}
+              <Link
+                href="/coach/schedule"
+                className="block text-center text-xs font-medium text-blue-600 hover:text-blue-700 pt-1"
+              >
+                전체 일정 보기 →
+              </Link>
             </div>
           </Card>
         </div>

@@ -10,9 +10,11 @@ import {
   Megaphone,
   MessageCircle,
   Calendar,
+  Camera,
 } from "lucide-react";
 import { StatCard } from "@/components/ui/StatCard";
 import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
 import Link from "next/link";
 
 export default function ParentDashboardPage() {
@@ -30,7 +32,7 @@ export default function ParentDashboardPage() {
       text: "우천으로 인한 휴원 안내",
       time: "1시간 전",
       badge: "긴급",
-      badgeColor: "bg-red-100 text-red-700",
+      variant: "danger" as const,
     },
     {
       type: "update",
@@ -51,13 +53,15 @@ export default function ParentDashboardPage() {
     { date: "매주 화/목", event: "유치부 A 수업 09:00-10:30", type: "class" },
   ];
 
+  const childName = "김민재";
+
   return (
     <div className="space-y-6">
       {/* Page header */}
       <div>
         <h2 className="text-2xl font-bold text-gray-900">학부모 대시보드</h2>
         <p className="mt-1 text-sm text-gray-500">
-          자녀의 클럽 활동을 확인하세요
+          {childName}의 클럽 활동을 확인하세요
         </p>
       </div>
 
@@ -73,18 +77,21 @@ export default function ParentDashboardPage() {
         <StatCard
           title="출석률"
           value={childInfo.attendanceRate}
+          subtitle="이번 달 19/20회"
           icon={<CalendarCheck className="h-6 w-6" />}
           color="#059669"
         />
         <StatCard
           title="훈련 평가"
           value={childInfo.trainingScore}
+          subtitle="최근 평균"
           icon={<Star className="h-6 w-6" />}
           color="#06b6d4"
         />
         <StatCard
           title="회비 상태"
           value={childInfo.feeStatus}
+          subtitle="6월 350,000원"
           icon={<DollarSign className="h-6 w-6" />}
           color="#10b981"
         />
@@ -100,12 +107,10 @@ export default function ParentDashboardPage() {
                 className="flex items-center justify-between rounded-lg px-3 py-2.5"
               >
                 <div className="flex items-center gap-3">
-                  {"badge" in notif ? (
-                    <span
-                      className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${notif.badgeColor}`}
-                    >
+                  {"variant" in notif && notif.variant ? (
+                    <Badge variant={notif.variant} size="sm">
                       {notif.badge}
-                    </span>
+                    </Badge>
                   ) : (
                     <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gray-100">
                       {notif.icon}
@@ -123,20 +128,20 @@ export default function ParentDashboardPage() {
 
         <div className="space-y-6">
           <Card title="퀵 메뉴">
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-3 gap-2">
               <Link
                 href="/parent/attendance"
                 className="flex flex-col items-center gap-1.5 rounded-lg bg-gray-50 px-3 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
               >
                 <CalendarCheck className="h-5 w-5 text-green-600" />
-                <span>출석 현황</span>
+                <span>출석</span>
               </Link>
               <Link
                 href="/parent/fees"
                 className="flex flex-col items-center gap-1.5 rounded-lg bg-gray-50 px-3 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
               >
                 <DollarSign className="h-5 w-5 text-amber-600" />
-                <span>회비 납부</span>
+                <span>회비</span>
               </Link>
               <Link
                 href="/parent/reports"
@@ -150,7 +155,21 @@ export default function ParentDashboardPage() {
                 className="flex flex-col items-center gap-1.5 rounded-lg bg-gray-50 px-3 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
               >
                 <Megaphone className="h-5 w-5 text-blue-600" />
-                <span>공지사항</span>
+                <span>공지</span>
+              </Link>
+              <Link
+                href="/parent/gallery"
+                className="flex flex-col items-center gap-1.5 rounded-lg bg-gray-50 px-3 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
+              >
+                <Camera className="h-5 w-5 text-pink-600" />
+                <span>갤러리</span>
+              </Link>
+              <Link
+                href="/parent/messages"
+                className="flex flex-col items-center gap-1.5 rounded-lg bg-gray-50 px-3 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
+              >
+                <MessageCircle className="h-5 w-5 text-cyan-600" />
+                <span>채팅</span>
               </Link>
             </div>
           </Card>
@@ -174,6 +193,14 @@ export default function ParentDashboardPage() {
                   <span className="text-sm text-gray-700">{evt.event}</span>
                 </div>
               ))}
+              <div className="pt-1 text-center">
+                <Link
+                  href="/parent/calendar"
+                  className="text-sm text-blue-600 hover:text-blue-800"
+                >
+                  전체 일정 보기 →
+                </Link>
+              </div>
             </div>
           </Card>
         </div>
