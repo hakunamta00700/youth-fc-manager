@@ -286,6 +286,20 @@ datasource db {
 
 ---
 
+---
+
+## 🔗 GitHub Issues
+
+| Issue | Phase | 링크 |
+|:-----:|-------|------|
+| #1 | Phase 1 — 코어 프레임워크 | [#1](https://github.com/hakunamta00700/youth-fc-manager/issues/1) |
+| #2 | Phase 2 — Admin 16 screens | [#2](https://github.com/hakunamta00700/youth-fc-manager/issues/2) |
+| #3 | Phase 3 — Manager 14 screens | [#3](https://github.com/hakunamta00700/youth-fc-manager/issues/3) |
+| #4 | Phase 4 — Coach 14 screens | [#4](https://github.com/hakunamta00700/youth-fc-manager/issues/4) |
+| #5 | Phase 5 — Parent 14 screens | [#5](https://github.com/hakunamta00700/youth-fc-manager/issues/5) |
+| #6 | Phase 6 — API Routes | [#6](https://github.com/hakunamta00700/youth-fc-manager/issues/6) |
+| #7 | Phase 7 — Deploy & Polish | [#7](https://github.com/hakunamta00700/youth-fc-manager/issues/7) |
+
 > **마지막 업데이트:** 2026-06-01  
 > **작성자:** Hermes Agent  
 > **다음 작업:** Phase 1.1 — Next.js 프로젝트 생성
