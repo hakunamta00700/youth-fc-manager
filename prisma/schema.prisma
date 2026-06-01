@@ -1,0 +1,265 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ---------- 1. Club ----------
+model Club {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String?
+  email     String?
+  address   String?
+  logo      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  members  Member[]
+  coaches  Coach[]
+  groups   Group[]
+  albums   Album[]
+}
+
+// ---------- 2. Member ----------
+model Member {
+  id               String   @id @default(cuid())
+  clubId           String
+  groupId          String?
+  name             String
+  birthDate        String?
+  gender           String?
+  phone            String?
+  email            String?
+  address          String?
+  emergencyContact String?
+  medicalNote      String?
+  guardParent      String?
+  relation         String?
+  status           String   @default("active")
+  enrolledAt       DateTime @default(now())
+  droppedAt        DateTime?
+  note             String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  club             Club              @relation(fields: [clubId], references: [id])
+  group            Group?            @relation(fields: [groupId], references: [id])
+  attendances      Attendance[]
+  payments         Payment[]
+  trainingRecords  TrainingRecord[]
+  inquiries        Inquiry[]
+  messages         Message[]         @relation("MemberMessages")
+}
+
+// ---------- 3. Group ----------
+model Group {
+  id          String   @id @default(cuid())
+  clubId      String
+  name        String
+  category    String
+  description String?
+  maxCapacity Int?
+  color       String?
+  schedule    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  club      Club       @relation(fields: [clubId], references: [id])
+  members   Member[]
+  coaches   Coach[]
+  schedules Schedule[]
+}
+
+// ---------- 4. Coach ----------
+model Coach {
+  id        String   @id @default(cuid())
+  clubId    String
+  groupId   String?
+  name      String
+  phone     String?
+  email     String?
+  role      String   @default("coach")
+  specialty String?
+  bio       String?
+  avatar    String?
+  status    String   @default("active")
+  startedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  club               Club              @relation(fields: [clubId], references: [id])
+  group              Group?            @relation(fields: [groupId], references: [id])
+  attendanceAlerts   AttendanceAlert[]
+  messages           Message[]         @relation("CoachMessages")
+  handovers          Handover[]        @relation("HandoverFrom")
+  receivedHandovers  Handover[]        @relation("HandoverTo")
+}
+
+// ---------- 5. Attendance ----------
+model Attendance {
+  id           String    @id @default(cuid())
+  memberId     String
+  date         DateTime
+  status       String
+  checkIn      DateTime?
+  checkOut     DateTime?
+  note         String?
+  recordedById String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  member Member @relation(fields: [memberId], references: [id])
+}
+
+// ---------- 6. AttendanceAlert ----------
+model AttendanceAlert {
+  id       String   @id @default(cuid())
+  coachId  String
+  memberId String?
+  type     String
+  sentAt   DateTime @default(now())
+  status   String
+  method   String
+  message  String?
+
+  coach Coach @relation(fields: [coachId], references: [id])
+}
+
+// ---------- 7. Payment ----------
+model Payment {
+  id             String    @id @default(cuid())
+  memberId       String
+  amount         Int
+  month          String
+  dueDate        DateTime?
+  paidAt         DateTime?
+  status         String    @default("pending")
+  method         String?
+  note           String?
+  refundedAmount Int?
+  refundedAt     DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  member Member @relation(fields: [memberId], references: [id])
+}
+
+// ---------- 8. TrainingRecord ----------
+model TrainingRecord {
+  id           String   @id @default(cuid())
+  memberId     String
+  date         DateTime
+  category     String
+  dribbling    Int?
+  passing      Int?
+  shooting     Int?
+  defense      Int?
+  stamina      Int?
+  speed        Int?
+  cooperation  Int?
+  attitude     Int?
+  coachNote    String?
+  recordedById String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  member Member @relation(fields: [memberId], references: [id])
+}
+
+// ---------- 9. Notification ----------
+model Notification {
+  id        String   @id @default(cuid())
+  clubId    String?
+  title     String
+  content   String
+  category  String
+  target    String
+  targetIds String?
+  pinned    Boolean  @default(false)
+  sentAt    DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ---------- 10. Schedule ----------
+model Schedule {
+  id          String   @id @default(cuid())
+  groupId     String?
+  title       String
+  description String?
+  startTime   DateTime
+  endTime     DateTime
+  type        String
+  location    String?
+  color       String?
+  allDay      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  group Group? @relation(fields: [groupId], references: [id])
+}
+
+// ---------- 11. Inquiry ----------
+model Inquiry {
+  id          String   @id @default(cuid())
+  memberId    String
+  type        String
+  content     String
+  status      String   @default("pending")
+  contactedAt DateTime?
+  note        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  member Member @relation(fields: [memberId], references: [id])
+}
+
+// ---------- 12. Album ----------
+model Album {
+  id          String   @id @default(cuid())
+  clubId      String
+  title       String
+  description String?
+  images      String
+  tags        String?
+  createdById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  club Club @relation(fields: [clubId], references: [id])
+}
+
+// ---------- 13. Message ----------
+model Message {
+  id         String    @id @default(cuid())
+  senderId   String
+  receiverId String
+  content    String
+  read       Boolean   @default(false)
+  readAt     DateTime?
+  createdAt  DateTime  @default(now())
+
+  sender   Member @relation("MemberMessages", fields: [senderId], references: [id])
+  receiver Coach  @relation("CoachMessages", fields: [receiverId], references: [id])
+}
+
+// ---------- 14. Handover ----------
+model Handover {
+  id          String   @id @default(cuid())
+  fromCoachId String
+  toCoachId   String
+  title       String
+  content     String
+  attachments String?
+  priority    String   @default("normal")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  fromCoach Coach @relation("HandoverFrom", fields: [fromCoachId], references: [id])
+  toCoach   Coach @relation("HandoverTo", fields: [toCoachId], references: [id])
+}

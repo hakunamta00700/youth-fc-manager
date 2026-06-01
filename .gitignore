@@ -1,18 +1,25 @@
-# Python
-__pycache__/
-*.py[cod]
-*.egg-info/
-dist/
-build/
-.venv/
-venv/
-env/
+# Learn more: https://nextjs.org/docs/architecture/next-config-js
+.next
+*.tsbuildinfo
+next-env.d.ts
 
-# Node
+# Dependencies
 node_modules/
-.next/
-out/
-dist/
+
+# Environment
+.env
+.env*.local
+
+# Database
+prisma/dev.db
+prisma/dev.db-journal
+db
+db-wal
+db-shm
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
 
 # IDE
 .vscode/
@@ -24,15 +31,15 @@ dist/
 .DS_Store
 Thumbs.db
 
-# Environment
-.env
-.env.local
-.env.production
+# Python
+__pycache__/
+*.pyc
 
-# Django
-*.sqlite3
-media/
-staticfiles/
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Logs
-*.log
+# Build
+dist/
+build/
