@@ -10,19 +10,19 @@
 ## 📊 전체 진행 현황
 
 ```
-Phase 0: Plan & Setup         [■■■■□□□□□□]  40%  ← 현재
-Phase 1: Core Framework       [□□□□□□□□□□]   0%
-Phase 2: Admin Pages (16)     [□□□□□□□□□□]   0%
-Phase 3: Manager Pages (14)   [□□□□□□□□□□]   0%
-Phase 4: Coach Pages (14)     [□□□□□□□□□□]   0%
-Phase 5: Parent Pages (14)    [□□□□□□□□□□]   0%
-Phase 6: API & Integration    [□□□□□□□□□□]   0%
+Phase 0: Plan & Setup         [■■■■■■■■■■] 100% ✅
+Phase 1: Core Framework       [■■■■■■■■■■] 100% ✅
+Phase 2: Admin Pages (16)     [■■■■■■■■■■] 100% ✅
+Phase 3: Manager Pages (14)   [■■■■■■■■■■] 100% ✅
+Phase 4: Coach Pages (14)     [■■■■■■■■■■] 100% ✅
+Phase 5: Parent Pages (14)    [■■■■■■■■■■] 100% ✅
+Phase 6: API & Integration    [□□□□□□□□□□]   0%  ← 다음
 Phase 7: Polish & Deploy      [□□□□□□□□□□]   0%
 ```
 
-**완료:** Phase 0 중 문서 분석, 기술 확정  
-**진행중:** plan.md 작성, 프로젝트 초기화  
-**다음:** Phase 1 — Next.js 프로젝트 생성, Prisma 스키마, 공통 레이아웃
+**완료:** Phase 0-5 전체 완료 (프로젝트 초기화 ~ 61개 화면 구현)  
+**진행중:** Phase 6 — API Routes & Server Actions  
+**다음:** Phase 6 — 데이터 연동 API 엔드포인트 개발 (~50개)
 
 ---
 
