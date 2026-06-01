@@ -16,13 +16,13 @@ Phase 2: Admin Pages (16)     [■■■■■■■■■■] 100% ✅
 Phase 3: Manager Pages (14)   [■■■■■■■■■■] 100% ✅
 Phase 4: Coach Pages (14)     [■■■■■■■■■■] 100% ✅
 Phase 5: Parent Pages (14)    [■■■■■■■■■■] 100% ✅
-Phase 6: API & Integration    [□□□□□□□□□□]   0%  ← 다음
+Phase 6: API & Integration    [■■■■■■■■■■] 100% ✅
 Phase 7: Polish & Deploy      [□□□□□□□□□□]   0%
 ```
 
-**완료:** Phase 0-5 전체 완료 (프로젝트 초기화 ~ 61개 화면 구현)  
-**진행중:** Phase 6 — API Routes & Server Actions  
-**다음:** Phase 6 — 데이터 연동 API 엔드포인트 개발 (~50개)
+**완료:** Phase 0-6 전체 완료 (프로젝트 초기화 ~ 61개 화면 ~ 31개 API Routes)  
+**진행중:** Phase 7 — Deploy & Polish  
+**다음:** Phase 7 — 배포, 스모크 테스트, README
 
 ---
 
