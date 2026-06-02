@@ -108,15 +108,15 @@ const NAV_GROUPS: Record<UserRole, NavGroup[]> = {
     {
       label: "회비",
       items: [
-        { label: "월별 결산", href: "/manager/ledger", icon: <Receipt className="h-5 w-5" /> },
+        { label: "월별 결산", href: "/manager/monthly", icon: <Receipt className="h-5 w-5" /> },
         { label: "미납 관리", href: "/manager/overdue", icon: <AlertTriangle className="h-5 w-5" /> },
         { label: "거래 내역", href: "/manager/transactions", icon: <ListChecks className="h-5 w-5" /> },
-        { label: "급여 관리", href: "/manager/payroll", icon: <Wallet className="h-5 w-5" /> },
+        { label: "급여 관리", href: "/manager/salary", icon: <Wallet className="h-5 w-5" /> },
       ],
     },
     {
       label: "통계",
-      items: [{ label: "통계 조회", href: "/manager/stats", icon: <ChartBar className="h-5 w-5" /> }],
+      items: [{ label: "통계 조회", href: "/manager/statistics", icon: <ChartBar className="h-5 w-5" /> }],
     },
     {
       label: "원생",

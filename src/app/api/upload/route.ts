@@ -10,7 +10,13 @@ export async function POST(request: NextRequest) {
     const auth = requireAuth(request);
     if ("error" in auth) return auth.error;
 
-    const formData = await request.formData();
+    let formData: FormData;
+    try {
+      formData = await request.formData();
+    } catch {
+      return errorResponse("파일이 필요합니다.", 400);
+    }
+
     const file = formData.get("file") as File | null;
 
     if (!file) {

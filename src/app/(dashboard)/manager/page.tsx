@@ -95,7 +95,7 @@ export default function ManagerDashboardPage() {
           <Card title="퀵 액션">
             <div className="flex flex-col gap-2">
               <Link
-                href="/manager/ledger"
+                href="/manager/monthly"
                 className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
               >
                 <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
@@ -113,7 +113,7 @@ export default function ManagerDashboardPage() {
                 지출 입력
               </Link>
               <Link
-                href="/manager/stats"
+                href="/manager/statistics"
                 className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
               >
                 <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-100 text-purple-600">

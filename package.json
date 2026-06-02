@@ -11,32 +11,40 @@
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
-    "db:turso-push": "turso db shell youth-fc-manager < prisma/migrations/*/migration.sql"
+    "db:seed": "tsx prisma/seed.ts",
+    "db:turso-push": "turso db shell youth-fc-manager < prisma/migrations/*/migration.sql",
+    "test:api": "playwright test --project=api",
+    "test:e2e": "playwright test --project=e2e"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@libsql/client": "^0.14.0",
+    "@prisma/adapter-libsql": "^6.5.0",
+    "@prisma/client": "^6.5.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.487.0",
     "next": "^15.2.4",
+    "next-auth": "^4.24.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "@prisma/client": "^6.5.0",
-    "@prisma/adapter-libsql": "^6.5.0",
-    "@libsql/client": "^0.14.0",
-    "lucide-react": "^0.487.0",
-    "next-auth": "^4.24.11",
-    "zustand": "^5.0.3",
     "recharts": "^2.15.1",
-    "clsx": "^2.1.1",
-    "tailwind-merge": "^3.0.2"
+    "tailwind-merge": "^3.0.2",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "typescript": "^5.8.3",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.24.0",
+    "@playwright/test": "^1.60.0",
+    "@tailwindcss/postcss": "^4.1.4",
     "@types/node": "^22.14.1",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "eslint": "^9.24.0",
     "prisma": "^6.5.0",
     "tailwindcss": "^4.1.4",
-    "@tailwindcss/postcss": "^4.1.4",
-    "eslint": "^9.24.0",
-    "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.24.0"
+    "tsx": "^4.22.4",
+    "typescript": "^5.8.3"
   }
 }

@@ -54,8 +54,8 @@ const MOCK_USERS: (AuthUser & { password: string })[] = [
 
 // Simple base64-encoded JSON token (not cryptographically secure for production)
 // In production, use a proper JWT library like `jsonwebtoken` with a secret key
-const TOKEN_SECRET = "youth-fc-manager-secret-key-2024";
-const TOKEN_EXPIRY_HOURS = 24;
+const TOKEN_SECRET="youth-fc-manager-secret-2024";
+const TOKEN_EXPIRY_HOURS=24
 
 function base64Encode(data: string): string {
   return Buffer.from(data).toString("base64url");

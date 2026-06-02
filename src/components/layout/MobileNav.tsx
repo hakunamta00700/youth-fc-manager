@@ -44,10 +44,10 @@ const MOBILE_NAV_ITEMS: Record<UserRole, MobileNavItem[]> = {
   ],
   manager: [
     { label: "대시보드", href: "/manager", icon: <BarChart3 className="h-5 w-5" /> },
-    { label: "회비", href: "/manager/ledger", icon: <Receipt className="h-5 w-5" /> },
+    { label: "회비", href: "/manager/monthly", icon: <Receipt className="h-5 w-5" /> },
     { label: "원생", href: "/manager/students", icon: <User className="h-5 w-5" /> },
     { label: "정산", href: "/manager/transactions", icon: <DollarSign className="h-5 w-5" /> },
-    { label: "설정", href: "/manager/stats", icon: <Settings className="h-5 w-5" /> },
+    { label: "설정", href: "/manager/statistics", icon: <Settings className="h-5 w-5" /> },
   ],
   coach: [
     { label: "일정", href: "/coach", icon: <Calendar className="h-5 w-5" /> },
