@@ -1,0 +1,85 @@
+name: "[Feature] 기능 요청"
+description: 새로운 기능을 제안합니다
+title: "[Feature] "
+labels: ["feature", "needs-spec"]
+body:
+  - type: textarea
+    id: background
+    attributes:
+      label: Background
+      description: 왜 이 작업이 필요한가요?
+      placeholder: 배경 설명
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: 완료되었을 때 어떤 상태가 되어야 하나요?
+      placeholder: 목표 상태 설명
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: 수정하거나 확인해야 할 범위는?
+      placeholder: 작업 범위
+    validations:
+      required: true
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of Scope
+      description: 이번 Issue에서 하지 않을 일은?
+      placeholder: 제외 범위
+  - type: textarea
+    id: related_files
+    attributes:
+      label: Related Files
+      description: 관련 파일 또는 디렉터리
+      placeholder: 예: src/app/(dashboard)/admin/
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: 완료 조건을 체크리스트로 작성해주세요
+      placeholder: |
+        - [ ] 조건 1
+        - [ ] 조건 2
+        - [ ] 조건 3
+    validations:
+      required: true
+  - type: textarea
+    id: test_plan
+    attributes:
+      label: Test Plan
+      description: 테스트 방법이나 실행 명령을 작성해주세요
+      placeholder: 테스트 방법
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk Level
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
+  - type: dropdown
+    id: agent_suitable
+    attributes:
+      label: Agent Suitable
+      description: AI Agent가 바로 작업할 수 있나요?
+      options:
+        - "Yes"
+        - "No"
+        - "Needs Human First"
+    validations:
+      required: true
+  - type: textarea
+    id: agent_instruction
+    attributes:
+      label: Agent Instruction
+      description: AI Agent가 작업할 때 반드시 지켜야 할 내용
+      placeholder: Agent 지침

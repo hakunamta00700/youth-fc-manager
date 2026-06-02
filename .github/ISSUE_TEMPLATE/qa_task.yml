@@ -1,0 +1,47 @@
+name: "[QA] QA 검증"
+description: QA 검증이 필요한 작업
+title: "[QA] "
+labels: ["test", "needs-qa"]
+body:
+  - type: textarea
+    id: background
+    attributes:
+      label: Background
+      description: 왜 이 QA 검증이 필요한가요?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Test Scope
+      description: 검증 범위
+    validations:
+      required: true
+  - type: textarea
+    id: test_scenarios
+    attributes:
+      label: Test Scenarios
+      description: 구체적인 테스트 시나리오
+      placeholder: |
+        1. [시나리오 1]
+        2. [시나리오 2]
+        3. [시나리오 3]
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: QA 통과 조건
+    validations:
+      required: true
+  - type: dropdown
+    id: agent_suitable
+    attributes:
+      label: Agent Suitable
+      options:
+        - "Yes"
+        - "No"
+        - "Needs Human First"
+    validations:
+      required: true

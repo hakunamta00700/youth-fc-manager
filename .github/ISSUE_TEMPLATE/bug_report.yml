@@ -1,0 +1,71 @@
+name: "[Bug] 버그 리포트"
+description: 버그를 신고합니다
+title: "[Bug] "
+labels: ["bug", "needs-spec"]
+body:
+  - type: textarea
+    id: background
+    attributes:
+      label: Background
+      description: 어떤 상황에서 버그가 발생했나요?
+      placeholder: 버그 발생 상황
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction Steps
+      description: 버그 재현 절차
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: 원래 기대한 동작은 무엇인가요?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: 실제로 발생한 동작은 무엇인가요?
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: 브라우저, OS, 앱 버전 등
+      placeholder: Chrome 120, macOS 14.3
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Screenshots
+      description: 관련 로그나 스크린샷이 있으면 첨부해주세요
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk Level
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
+  - type: dropdown
+    id: agent_suitable
+    attributes:
+      label: Agent Suitable
+      description: AI Agent가 바로 작업할 수 있나요?
+      options:
+        - "Yes"
+        - "No"
+        - "Needs Human First"
+    validations:
+      required: true
