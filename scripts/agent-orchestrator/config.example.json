@@ -1,0 +1,40 @@
+{
+  "repository": "hakunamta00700/youth-fc-manager",
+  "project_id": "PVT_kwHOAFnbH84BZSvL",
+  "project_number": 12,
+  "project_owner": "hakunamta00700",
+  "max_concurrent_tasks": 1,
+  "max_retry_per_issue": 2,
+  "ready_labels": ["ready-for-agent", "agent-ready"],
+  "exclude_labels": ["blocked", "needs-spec", "needs-human-decision", "risk-high", "agent-working", "agent-claimed"],
+  "priority_labels": ["priority-p0", "priority-p1", "priority-p2", "priority-p3"],
+  "status_field_id": "PVTSSF_lAHOAFnbH84BZSvLzhUSaCc",
+  "status_options": {
+    "backlog": "Backlog",
+    "needs_spec": "Needs Spec",
+    "ready_for_agent": "Ready for Agent",
+    "agent_working": "Agent Working",
+    "human_review": "Human Review",
+    "ready_for_qa": "Ready for QA",
+    "qa_failed": "QA Failed",
+    "ready_to_merge": "Ready to Merge",
+    "merged": "Merged",
+    "released": "Released",
+    "blocked": "Blocked"
+  },
+  "status_option_ids": {
+    "Backlog": "f75ad846",
+    "Needs Spec": "47fc9ee4",
+    "Ready for Agent": "98236657",
+    "Agent Working": "5a658554",
+    "Human Review": "a84b61bb",
+    "Ready for QA": "a7366e1c",
+    "QA Failed": "cbb6170a",
+    "Ready to Merge": "fa73e4b1",
+    "Merged": "9e190b26",
+    "Released": "2ba292cd",
+    "Blocked": "4fc1968d"
+  },
+  "require_human_merge": true,
+  "working_dir": "/home/david/workspace/youth-fc-manager"
+}
