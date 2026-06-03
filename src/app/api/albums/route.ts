@@ -7,6 +7,10 @@ import {
   parseBody,
 } from "@/lib/api-auth";
 
+type AlbumRecord = Record<string, unknown> & {
+  images: string | null;
+};
+
 export async function GET(request: NextRequest) {
   try {
     const auth = requireAuth(request);
@@ -20,10 +24,10 @@ export async function GET(request: NextRequest) {
       where.clubId = clubId;
     }
 
-    const albums = await prisma.album.findMany({
+    const albums = (await prisma.album.findMany({
       where,
       orderBy: { createdAt: "desc" },
-    });
+    })) as AlbumRecord[];
 
     // Parse images JSON string to array
     const parsed = albums.map((album) => ({
