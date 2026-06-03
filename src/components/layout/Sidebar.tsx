@@ -60,6 +60,7 @@ interface SidebarProps {
   userName?: string;
   userEmail?: string;
   userAvatar?: string;
+  onNavClick?: () => void;
 }
 
 const NAV_GROUPS: Record<UserRole, NavGroup[]> = {
@@ -164,6 +165,7 @@ function Sidebar({
   userName = "사용자",
   userEmail = "user@youthfc.com",
   userAvatar,
+  onNavClick,
 }: SidebarProps) {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
@@ -198,10 +200,8 @@ function Sidebar({
   return (
     <aside
       className={cn(
-        "fixed left-0 top-0 z-40 flex h-screen flex-col bg-slate-900 text-white transition-all duration-300",
-        "md:relative md:translate-x-0",
-        collapsed ? "w-16" : "w-64",
-        "-translate-x-full md:translate-x-0"
+        "flex h-screen flex-col bg-slate-900 text-white transition-all duration-300",
+        collapsed ? "w-16" : "w-64"
       )}
     >
       {/* Logo */}
@@ -255,6 +255,7 @@ function Sidebar({
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={onNavClick}
                   className={cn(
                     "group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
                     isActive(item.href)

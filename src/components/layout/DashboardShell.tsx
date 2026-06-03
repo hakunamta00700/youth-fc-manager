@@ -32,13 +32,17 @@ function DashboardShell({
     setMobileSidebarOpen(!mobileSidebarOpen);
   };
 
+  const closeMobileSidebar = () => {
+    setMobileSidebarOpen(false);
+  };
+
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Mobile sidebar overlay */}
       {mobileSidebarOpen && (
         <div
-          className="fixed inset-0 z-30 bg-black/50 md:hidden"
-          onClick={() => setMobileSidebarOpen(false)}
+          className="fixed inset-0 z-40 bg-black/50 md:hidden"
+          onClick={closeMobileSidebar}
         />
       )}
 
@@ -46,13 +50,14 @@ function DashboardShell({
       <div
         className={`${
           mobileSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } fixed left-0 top-0 z-40 transition-transform duration-300 md:static md:translate-x-0`}
+        } fixed left-0 top-0 z-50 h-full transition-transform duration-300 md:static md:translate-x-0`}
       >
         <Sidebar
           role={role}
           clubName={clubName}
           userName={userName}
           userEmail={userEmail}
+          onNavClick={closeMobileSidebar}
         />
       </div>
 
