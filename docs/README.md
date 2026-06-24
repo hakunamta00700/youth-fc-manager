@@ -42,8 +42,15 @@
 
 ```
 youth-fc-manager/
-├── docs/               # 요구사항, 설계 문서
-├── backend/            # Django API 서버
-├── frontend/           # Next.js 웹 앱
-└── scripts/            # 배포/유틸리티 스크립트
+├── docs/
+│   ├── README.md       # 프로젝트 개요
+│   ├── plan.md         # 개발 계획
+│   ├── screen-list.md  # 화면 목록
+│   ├── legacy_data/    # XLSX 등 레거시 자료
+│   └── screens/        # HTML 화면 원본
+├── src/                # 실제 Next.js 소스 코드
+├── prisma/             # DB 스키마/마이그레이션
+├── scripts/            # 배포/유틸리티 스크립트
+├── tests/              # 테스트 코드
+└── package.json        # 프로젝트 설정
 ```

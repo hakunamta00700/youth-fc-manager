@@ -29,7 +29,7 @@ Phase 7: Polish & Deploy      [□□□□□□□□□□]   0%
 ## Phase 0: ✅ 프로젝트 분석 및 준비 (완료)
 
 - [x] 기존 문서 분석 (`docs/` — requirements.md, data-model.md, user-stories.md, screen-list.md)
-- [x] 기존 화면 HTML 분석 (`screens/` — 61개 화면)
+- [x] 기존 화면 HTML 분석 (`docs/screens/` — 61개 화면)
 - [x] Turso + Prisma 연동 문서 확인
 - [x] 기술 스택 확정 (Next.js 14, App Router, Prisma, Turso, Tailwind)
 - [x] GitHub 저장소 확인 (hakunamta00700/youth-fc-manager)
@@ -230,7 +230,7 @@ Phase 7: Polish & Deploy      [□□□□□□□□□□]   0%
 - [ ] 전체 화면 워킹 스모크 테스트
 - [ ] Prisma migration 최종 적용
 - [ ] Vercel 배포 설정
-- [ ] README.md 업데이트
+- [ ] docs/README.md 업데이트
 - [ ] 사용자 매뉴얼 작성
 
 ---
